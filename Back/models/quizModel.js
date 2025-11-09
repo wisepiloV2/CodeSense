@@ -13,21 +13,14 @@ async function queryDB(query, data = []) {
   }
 }
 
-//POST: Una cantidad [limit] de preguntas de una misma [category]
-export async function getQuestions(category, limit) {
+export async function getQuizzesDB(categoria, limite) {
   const query = "";
   const data = [categoria, limite];
   return await queryDB(query, data);
 }
 
-export async function getAnswer(id_question) {
+export async function getAnswers(id_enunciado, id_respuesta) {
   const query = "";
-  const data = [id_question];
-  return await queryDB(query, data);
-}
-
-export async function getAnswers() {
-  const query = "";
-  const data = null;
+  const data = [id_enunciado, id_respuesta];
   return await queryDB(query, data);
 }
