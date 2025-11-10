@@ -1,33 +1,33 @@
-import { getQuestions } from "../models/quizModel.js";
+import { obtenerQuizPorCategoria } from "../models/quizModel.js";
 
-function internalServerError() {
+function errorInternoDelServidor() {
   return {
-    success: false,
-    status: 500,
-    message: "Ocurrió un error inesperado en el servidor.",
+    exito: false,
+    estado: 500,
+    mensaje: "Ocurrió un error inesperado en el servidor.",
   };
 }
 
-function errorToUser(success, status, message) {
+function errorParaUsuario(exito, estado, mensaje) {
   return {
-    success: success,
-    status: status,
-    message: message,
+    exito: exito,
+    estado: estado,
+    mensaje: mensaje,
   };
 }
 
-export async function getQuizzesController(category, limit) {
+export async function obtenerQuizPorCategoriaController(categoria, limite) {
   try {
-    const data = await getQuestions(category, limit);
+    const datos = await obtenerQuizPorCategoria(categoria, limite);
 
-    if (!data || data.length === 0) {
-      const message = `No se encontraron preguntas para la categoría '${category}'.`;
-      return errorToUser(false, 404, message);
+    if (!datos || datos.length === 0) {
+      const mensaje = `No existen enunciados para la categoria: '${categoria}'.`;
+      return errorParaUsuario(false, 404, mensaje);
     }
 
-    return { success: true, status: 200, data: data };
+    return { exito: true, estado: 200, datos: datos };
   } catch (error) {
-    console.error("Error en getQuestionsController:", error);
-    return internalServerError();
+    console.error("Error en obtenerQuizPorCategoriaController:", error);
+    return errorInternoDelServidor();
   }
 }

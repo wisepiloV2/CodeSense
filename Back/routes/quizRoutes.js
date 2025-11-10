@@ -1,16 +1,14 @@
 import express from "express";
-import { getQuizzesController } from "../controller/quizController.js";
-export const quizRoutes = express.Router();
+import { obtenerQuizPorCategoriaController } from "../controller/quizController.js";
+export const quizRutas = express.Router();
 
-quizRoutes.get("/quizzes", async (req, res) => {
-  const { category, limit: limitStr } = req.query;
-  const limit = parseInt(limitStr) || 5;
-  const { success, status, data, message } = await getQuizzesController(
-    category,
-    limit
-  );
+quizRutas.get("/quiz", async (req, res) => {
+  const { categoria, limite: limiteStr } = req.query;
+  const limite = parseInt(limiteStr) || 5;
+  const { exito, estado, datos, mensaje } =
+    await obtenerQuizPorCategoriaController(categoria, limite);
 
-  return res.status(status).json(success ? { data } : { message });
+  return res.status(estado).json(exito ? { datos } : { mensaje });
 });
 
-quizRoutes.get("/answers/check", async (req, res) => {});
+quizRutas.get("/answers/check", async (req, res) => {});

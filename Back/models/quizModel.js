@@ -1,9 +1,9 @@
 import { pool } from "../config/db.mjs";
 
-async function queryDB(query, data = []) {
+async function ConsultaBaseDeDatos(query, datos = []) {
   try {
-    const [result] = await pool.query(query, data);
-    return result;
+    const [resultado] = await pool.query(query, datos);
+    return resultado;
   } catch (error) {
     console.error("Error en consulta a la base de datos:", error);
 
@@ -13,14 +13,55 @@ async function queryDB(query, data = []) {
   }
 }
 
-export async function getQuizzesDB(categoria, limite) {
-  const query = "";
-  const data = [categoria, limite];
-  return await queryDB(query, data);
+export async function obtenerQuizPorCategoria(categoria, limite) {
+  const cteParaLimiteDeEnunciados = `WITH PrimerosEnunciados AS (
+    SELECT
+        e.id
+    FROM
+        Enunciados e
+    JOIN
+        Categorias c ON e.id_categoria = c.id
+    WHERE
+        c.categoria = '${categoria}'
+    LIMIT ${limite}
+)`;
+
+  const query = `${cteParaLimiteDeEnunciados} 
+  SELECT
+    e.id,
+    e.enunciado,
+    o.id,
+    o.opcion
+  FROM
+      Enunciados e
+  JOIN
+      Opciones o ON o.id_enunciado = e.id
+  JOIN
+      PrimerosEnunciados pe ON e.id = pe.id;`;
+
+  const datos = [categoria, limite];
+  return await ConsultaBaseDeDatos(query, datos);
 }
 
-export async function getAnswers(id_enunciado, id_respuesta) {
-  const query = "";
+export async function obtenerRespuestaCorrecta_Y_Seleccionada(
+  id_enunciado,
+  id_respuesta
+) {
+  const query = `
+  SELECT
+    oc.opcion AS opcion_correcta,
+    oc.justificacion AS justificacion_correcta,
+    oe.opcion AS opcion_elegida,
+    oe.justificacion AS justificacion_elegida
+  FROM
+      Enunciados e
+  LEFT JOIN
+      Opciones oc ON e.id = oc.id_enunciado AND oc.correcta = TRUE
+  LEFT JOIN
+      Opciones oe ON e.id = oe.id_enunciado AND oe.id = ${id_respuesta}
+  WHERE
+      e.id = ${id_enunciado};
+    `;
   const data = [id_enunciado, id_respuesta];
-  return await queryDB(query, data);
+  return await ConsultaBaseDeDatos(query, data);
 }
