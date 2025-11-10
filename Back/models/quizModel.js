@@ -28,9 +28,9 @@ export async function obtenerQuizPorCategoria(categoria, limite) {
 
   const query = `${cteParaLimiteDeEnunciados} 
   SELECT
-    e.id,
+    e.id AS id_enunciado,
     e.enunciado,
-    o.id,
+    o.id AS id_opcion,
     o.opcion
   FROM
       Enunciados e
@@ -45,7 +45,7 @@ export async function obtenerQuizPorCategoria(categoria, limite) {
 
 export async function obtenerRespuestaCorrecta_Y_Seleccionada(
   id_enunciado,
-  id_respuesta
+  id_opcion
 ) {
   const query = `
   SELECT
@@ -58,10 +58,10 @@ export async function obtenerRespuestaCorrecta_Y_Seleccionada(
   LEFT JOIN
       Opciones oc ON e.id = oc.id_enunciado AND oc.correcta = TRUE
   LEFT JOIN
-      Opciones oe ON e.id = oe.id_enunciado AND oe.id = ${id_respuesta}
+      Opciones oe ON e.id = oe.id_enunciado AND oe.id = ${id_opcion}
   WHERE
       e.id = ${id_enunciado};
     `;
-  const data = [id_enunciado, id_respuesta];
+  const data = [id_enunciado, id_opcion];
   return await ConsultaBaseDeDatos(query, data);
 }

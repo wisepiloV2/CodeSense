@@ -11,4 +11,4 @@ quizRutas.get("/quiz", async (req, res) => {
   return res.status(estado).json(exito ? { datos } : { mensaje });
 });
 
-quizRutas.get("/answers/check", async (req, res) => {});
+quizRutas.get("/opcion-verificar", async (req, res) => {});

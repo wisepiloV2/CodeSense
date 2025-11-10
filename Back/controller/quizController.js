@@ -25,9 +25,34 @@ export async function obtenerQuizPorCategoriaController(categoria, limite) {
       return errorParaUsuario(false, 404, mensaje);
     }
 
-    return { exito: true, estado: 200, datos: datos };
+    const datosFormateados = formatearDatos(datos);
+
+    return { exito: true, estado: 200, datos: datosFormateados };
   } catch (error) {
     console.error("Error en obtenerQuizPorCategoriaController:", error);
     return errorInternoDelServidor();
   }
+}
+
+function formatearDatos(datos) {
+  const quizAgrupado = {};
+
+  for (const fila of datos) {
+    const enunciadoId = fila.id_enunciado;
+
+    if (!quizAgrupado[enunciadoId]) {
+      quizAgrupado[enunciadoId] = {
+        id_enunciado: enunciadoId,
+        enunciado: fila.enunciado,
+        opciones: [],
+      };
+    }
+
+    quizAgrupado[enunciadoId].opciones.push({
+      id_opcion: fila.id_opcion,
+      opcion: fila.opcion,
+    });
+  }
+
+  return Object.values(quizAgrupado);
 }
