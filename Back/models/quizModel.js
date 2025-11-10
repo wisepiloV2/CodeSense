@@ -43,7 +43,7 @@ export async function obtenerQuizPorCategoria(categoria, limite) {
   return await ConsultaBaseDeDatos(query, datos);
 }
 
-export async function obtenerRespuestaCorrecta_Y_Seleccionada(
+export async function obtenerOpcionCorrectaYSeleccionada(
   id_enunciado,
   id_opcion
 ) {

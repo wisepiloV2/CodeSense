@@ -1,4 +1,7 @@
-import { obtenerQuizPorCategoria } from "../models/quizModel.js";
+import {
+  obtenerQuizPorCategoria,
+  obtenerOpcionCorrectaYSeleccionada,
+} from "../models/quizModel.js";
 
 function errorInternoDelServidor() {
   return {
@@ -55,4 +58,23 @@ function formatearDatos(datos) {
   }
 
   return Object.values(quizAgrupado);
+}
+
+export async function verificarOpcionElegida(id_enunciado, id_opcion) {
+  try {
+    const datos = await obtenerOpcionCorrectaYSeleccionada(
+      id_enunciado,
+      id_opcion
+    );
+
+    if (!datos || datos.length === 0) {
+      const mensaje = `Los datos enviados son incorrectos.`;
+      return errorParaUsuario(false, 404, mensaje);
+    }
+
+    return { exito: true, estado: 200, datos: datos };
+  } catch (error) {
+    console.error("Error en verificarOpcionElegida:", error);
+    return errorInternoDelServidor();
+  }
 }
