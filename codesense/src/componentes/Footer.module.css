@@ -1,17 +1,31 @@
+.Clean {
+    all:unset
+}
+
 .LogoContainer {
     display: flex;
-    align-items: center;
     gap: 0.75rem;
-    font-size: clamp(1.2rem, 1.7vw, 2.5rem);
     font-weight: 700;
     cursor: pointer;
     color: white;
+    flex-direction: column;
+}
+
+.Logo{
+    display: flex;
+    gap: 10px;
+    font-size: clamp(1.2rem, 1.7vw, 2.5rem);
 }
 
 .LogoIcon {
     width: 28px;
     height: 28px;
     fill: #0ea5e9;
+}
+
+.LogoText{
+    color: #94a3b8;
+    font-size: clamp(1rem, 1.2vw, 1.3rem);
 }
 
 .CopyRight {
@@ -32,9 +46,10 @@
     display: flex;
     color: #fff;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 30px;
     max-width: 100vw;
+    backdrop-filter: blur(5px); 
 }
 
 .Links {
@@ -54,6 +69,10 @@
     padding-bottom: 0.25rem;
     border-bottom: 2px solid transparent;
     transition: all 0.3s ease;
+}
+
+.LinkText{
+    cursor: pointer;
 }
 
 .LinkText:hover,

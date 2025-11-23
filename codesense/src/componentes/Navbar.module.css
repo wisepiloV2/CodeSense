@@ -1,3 +1,7 @@
+.Clean {
+    all:unset
+}
+
 .NavContainer {
     width: 100%;
     background: linear-gradient(160deg, rgba(24, 71, 201, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
@@ -44,6 +48,7 @@
     padding-bottom: 0.25rem;
     border-bottom: 2px solid transparent;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .NavLink:hover,

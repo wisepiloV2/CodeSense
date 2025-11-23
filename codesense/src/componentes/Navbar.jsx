@@ -1,4 +1,4 @@
-
+import { useLocation, Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
 const Logo = () => (
@@ -11,15 +11,25 @@ const Logo = () => (
 );
 
 function Navbar() {
+    const location = useLocation();
+    const isActive = (path) => location.pathname === path ? styles.activeLink : '';
+
     return (
         <header className={styles.NavContainer}>
             <Logo />
-
             <nav>
                 <ul className={styles.NavLinks}>
-                    <li className={`${styles.NavLink} ${styles.activeLink}`}>Home</li>
-                    <li className={styles.NavLink}>Quiz</li>
-                    <li className={styles.NavLink}>About</li>
+                    <li className={`${styles.NavLink} ${isActive('/home')}`}>
+                        <Link to="/home" className={styles.Clean}>Home</Link>
+                    </li>
+                    
+                    <li className={`${styles.NavLink} ${isActive('/quiz-config')}`}>
+                        <Link to="/quiz-config" className={styles.Clean}>Quiz</Link>
+                    </li>
+
+                    <li className={`${styles.NavLink} ${isActive('/about')}`}>
+                        About
+                    </li>
                 </ul>
             </nav>
         </header>
