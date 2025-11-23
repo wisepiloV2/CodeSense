@@ -1,0 +1,57 @@
+.NavContainer {
+    width: 100%;
+    background: linear-gradient(160deg, rgba(24, 71, 201, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+    color: #0ea5e9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #1e293b;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.NavLogoContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: clamp(1.2rem, 1.7vw, 2.5rem);
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+}
+
+.NavLogoIcon {
+    width: 28px;
+    height: 28px;
+    fill: #0ea5e9;
+}
+
+.NavLinks {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.NavLink {
+    text-decoration: none;
+    color: #94a3b8;
+    font-weight: 500;
+    font-size: clamp(1.1rem, 1.1vw, 2rem);
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.NavLink:hover,
+.NavLink:focus {
+    color: #0ea5e9;
+}
+
+.activeLink {
+    color: #0ea5e9;
+    border-bottom-color: #0ea5e9;
+}

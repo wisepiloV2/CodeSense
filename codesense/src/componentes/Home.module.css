@@ -1,0 +1,103 @@
+.CardContainer {
+    background: linear-gradient(160deg, rgba(24, 71, 201, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+    width: 100%;
+    max-width: 400px; 
+    padding: 35px 30px;
+    border-radius: 24px; 
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(6, 182, 212, 0.8);
+}
+
+.CardIconContainer {
+    margin-bottom: 25px;
+    color: white;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+}
+
+.CardIconSvg {
+    width: 72px;
+    height: 72px;
+    fill: currentColor;
+}
+
+.CardTitle {
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.3;
+    margin: 0 0 15px 0;
+}
+
+.CardDescription {
+    font-size: 0.95rem;
+    color: #b0bed0; 
+    line-height: 1.5;
+    margin: 0 0 30px 0;
+    padding: 0 10px;
+}
+
+.CardMetaInfo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    margin-bottom: 35px;
+    font-weight: 600;
+    padding: 0 10px;
+}
+
+.CardBtn {
+    background-color: #06b6d4;
+    color: #0f172a;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 14px;
+    font-size: 1.05rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3); /* Sombra al botón también */
+}
+
+.CardBtn:hover {
+    transform: translateY(-2px);
+    background-color: #22d3ee;
+    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+}
+
+.MainContainer{
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.MainTitulo {
+    font-size: clamp(2rem, 3vw, 8rem);
+    font-weight: 700; 
+    color: #fff;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.MainTexto {
+    font-size: clamp(1.1rem, 1.5vw, 2.5rem);
+    text-align: center;
+    line-height: 1.6;
+    color: #ddd; 
+    font-weight: 400;
+}
+
+.GridContainer{
+    display: flex;
+    gap: 20px;
+}
