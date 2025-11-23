@@ -1,5 +1,6 @@
 import NavBar from './Navbar'
 import styles from './Home.module.css';
+import Footer from './Footer';
 
 const quizData = [
     {
@@ -33,6 +34,7 @@ const HomeStructure = () => {
                     
                 </div>
             </main>
+            <Footer />
         </>
     );
 }

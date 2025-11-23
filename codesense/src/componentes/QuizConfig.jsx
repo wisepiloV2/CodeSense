@@ -9,7 +9,7 @@ const QuizConfig = () => {
 
   return (
     <div className={styles.FormContainer}>
-      <h1 className={styles.FormTitle}>Configura tu Quiz Personalizado</h1>
+      <h1 className={styles.FormTitle}>Configura tu propio Quiz</h1>
       
       {/* Categoría */}
       <div className={styles.OptionsTec}>
