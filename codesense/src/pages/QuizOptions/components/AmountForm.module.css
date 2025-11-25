@@ -1,0 +1,74 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.label{
+    display: block;
+    font-size: clamp(1rem, 1.4vw, 1.3rem);
+    color: #ddd;
+    margin-bottom: 0.8rem;
+}
+
+.counter{
+    font-family: monospace;
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    color: #00f0ff;
+}
+
+.counterHighlighter{
+    color: #94a3b8;
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+}
+
+.trackWrapper{
+    position: relative;
+    height: 24px; 
+    display: flex;
+    align-items: center;
+}
+
+.trackBackground {
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.trackFill {
+  position: absolute;
+  height: 8px;
+  background: #00f0ff;
+  border-radius: 4px;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+  pointer-events: none; 
+}
+
+.input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+  margin: 0;
+}
+
+.thumb {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #00f0ff;
+  border-radius: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+  pointer-events: none;
+  transition: transform 0.1s;
+}

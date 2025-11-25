@@ -1,5 +1,5 @@
 import { useLocation, Link } from 'react-router-dom';
-import styles from './Navbar.module.css';
+import styles from './Header.module.css';
 
 const Logo = (location) => (
     <Link to="/home" className={styles.Clean}>
@@ -25,8 +25,8 @@ function Navbar() {
                         <Link to="/home" className={styles.Clean}>Home</Link>
                     </li>
                     
-                    <li className={`${styles.NavLink} ${isActive('/quiz-config')}`}>
-                        <Link to="/quiz-config" className={styles.Clean}>Quiz</Link>
+                    <li className={`${styles.NavLink} ${isActive('/quiz-options')}`}>
+                        <Link to="/quiz-options" className={styles.Clean}>Quiz</Link>
                     </li>
 
                     <li className={`${styles.NavLink} ${isActive('/about')}`}>

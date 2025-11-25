@@ -1,0 +1,39 @@
+.label {
+  display: block;
+  font-size: clamp(1rem, 1.4vw, 1.3rem);
+  color: #ddd;
+  margin-bottom: 0.8rem;
+}
+
+.group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 12px;
+  color: #94a3b8;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn.active {
+  border-color: #00f0ff;
+  background: rgba(0, 240, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.05);
+  color: #ffffff;
+  font-weight: 600;
+}
