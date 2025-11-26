@@ -3,6 +3,7 @@ import Welcome from './pages/Welcome/Welcome';
 import Layout from './components/Layout';
 import Home from './pages/Home/Home';
 import QuizOptions from './pages/QuizOptions/QuizOptions';
+import Quiz from './pages/Quiz/Quiz'
 
 function App() {
   return (
@@ -24,6 +25,15 @@ function App() {
           element={
             <Layout>
               <QuizOptions />
+            </Layout>
+          } 
+        />
+
+        <Route 
+          path='/quiz' 
+          element={
+            <Layout>
+              <Quiz />
             </Layout>
           } 
         />

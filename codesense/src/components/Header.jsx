@@ -28,10 +28,6 @@ function Navbar() {
                     <li className={`${styles.NavLink} ${isActive('/quiz-options')}`}>
                         <Link to="/quiz-options" className={styles.Clean}>Quiz</Link>
                     </li>
-
-                    <li className={`${styles.NavLink} ${isActive('/about')}`}>
-                        About
-                    </li>
                 </ul>
             </nav>
         </header>

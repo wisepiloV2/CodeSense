@@ -61,10 +61,6 @@ function LinksText(){
                 <li className={`${styles.LinkText} ${isActive('/quiz-options')}`}>
                     <Link to="/quiz-options" className={styles.Clean}>Quiz</Link>
                 </li>
-
-                <li className={`${styles.LinkText} ${isActive('/about')}`}>
-                    About
-                </li>
             </ul>
         </div>
     );
