@@ -9,18 +9,24 @@
     all: unset;
     padding: 10px;
     cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     outline: none;
     user-select: none; 
+    background: linear-gradient(160deg, rgba(24, 71, 201, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+    border-color: #00f0ff;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.05);
     -webkit-user-select: none;
+    color: #ddd;
     -moz-user-select: none;
     -ms-user-select: none;
 }
 
 .content {
-    border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+
+.code{
+  color: #00c6ff;
 }
